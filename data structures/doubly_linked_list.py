@@ -65,23 +65,23 @@ class LinkedList:
     def remove(self):
         if size == 0:
             return
+        temp = self.head.next.value
         self.head.next.prev = self.head
         self.head.next = self.head.next.next
         self.size -= 1
+        return temp
     
     def removeFirst(self):
-        if size == 0:
-            return
-        self.head.next.prev = self.head
-        self.head.next = self.head.next.next
-        self.size -= 1
+        return self.remove()
     
     def removeLast(self):
         if size == 0: 
             return
+        temp = self.tail.prev.value
         self.tail.prev = self.tail.prev.prev
         self.tail.prev.next = self.tail
         self.size -= 1
+        return temp
     
     def removeIndex(self, index):
         if index > self.size:
@@ -89,44 +89,44 @@ class LinkedList:
         it = self.head.next
         for i in range(index):
             it = it.next
+        temp = it.value
         it.prev.next = it.next
         it.next.prev = it.prev
         self.size -= 1
+        return temp
     
     def removeItem(self, value):
         if self.size == 0:
-            return
+            return False
         it = self.head.next
         while it.hasNext():
             if it.value == value:
                 it.prev.next = it.next
                 it.next.prev = it.prev
-                return
+                return True
             it = it.next
-        return
+        return False
     
     def poll(self):
-        if size == 0:
-            return
-        self.head.next.prev = self.head
-        self.head.next = self.head.next.next
-        self.size -= 1
+        return self.remove()
     
     def pollFirst(self):
-        if size == 0:
-            return
-        self.head.next.prev = self.head
-        self.head.next = self.head.next.next
-        self.size -= 1
+        return self.remove()
     
     def pollLast(self):
+        return self.removeLast()
+
+    def indexOf(self, value):
         if size == 0: 
             return
-        self.tail.prev = self.tail.prev.prev
-        self.tail.prev.next = self.tail
-        self.size -= 1
-
-    
+        i = 0
+        it = self.head.next
+        while it.hasNext():
+            if it.value == value:
+                return i
+            i += 1
+            it = it.next
+        return -1
     
     def setIndex(self, index, value):
         if index > self.size:
@@ -150,26 +150,26 @@ class LinkedList:
             return
         return self.head.next.value
     
-    def peek(self):
-        if self.size == 0:
-            return
-        return self.head.next.value
-    
-    def peekFirst(self):
-        if self.size == 0:
-            return
-        return self.head.next.value
-    
-    def peekLast(self):
-        if self.size == 0:
-            return
-        return self.tail.prev.value
-    
     def getLast(self):
         if self.size == 0:
             return
         return self.tail.prev.value
     
+    def peek(self):
+        return self.getFirst()
+    
+    def peekFirst(self):
+        return self.getFirst()
+    
+    def peekLast(self):
+        return self.getLast()
+    
+    def pop(self):
+        return self.removeFirst()
+
+    def push(self):
+        return self.addFirst()
+
     def size(self):
         return self.size
     
