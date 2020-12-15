@@ -53,6 +53,15 @@ class LinkedList:
         self.head.next.prev = new_node
         self.head.next = new_node
     
+    def contains(self, value):
+        if size == 0:
+            return False
+        it = self.head.next
+        while it.hasNext():
+            if it.value == value:
+                return True
+        return False
+    
     def remove(self):
         if size == 0:
             return
