@@ -169,9 +169,26 @@ class LinkedList:
 
     def push(self):
         return self.addFirst()
+    
+    def offer(self, value):
+        return self.addLast(value)
+    
+    def offerFirst(self,value):
+        return self.addFirst(value)
+    
+    def offerLast(self,value):
+        return self.addLast(value)
 
     def size(self):
         return self.size
+    
+    def toList(self):
+        lst = []
+        it = self.head.next
+        while it.hasNext():
+            lst.append(it.value)
+            it = it.next
+        return lst
     
     def __str__(self):
         iterator = self.head.next
