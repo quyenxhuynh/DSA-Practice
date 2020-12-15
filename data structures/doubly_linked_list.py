@@ -54,6 +54,20 @@ class LinkedList:
         self.head.next = new_node
     
     def remove(self):
+        if size == 0:
+            return
+        self.head.next.prev = self.head
+        self.head.next = self.head.next.next
+        self.size -= 1
+    
+    def removeFirst(self):
+        if size == 0:
+            return
+        self.head.next.prev = self.head
+        self.head.next = self.head.next.next
+        self.size -= 1
+    
+    def removeLast(self):
         if size == 0: 
             return
         self.tail.prev = self.tail.prev.prev
@@ -70,6 +84,50 @@ class LinkedList:
         it.next.prev = it.prev
         self.size -= 1
     
+    def removeItem(self, value):
+        if self.size == 0:
+            return
+        it = self.head.next
+        while it.hasNext():
+            if it.value == value:
+                it.prev.next = it.next
+                it.next.prev = it.prev
+                return
+            it = it.next
+        return
+    
+    def poll(self):
+        if size == 0:
+            return
+        self.head.next.prev = self.head
+        self.head.next = self.head.next.next
+        self.size -= 1
+    
+    def pollFirst(self):
+        if size == 0:
+            return
+        self.head.next.prev = self.head
+        self.head.next = self.head.next.next
+        self.size -= 1
+    
+    def pollLast(self):
+        if size == 0: 
+            return
+        self.tail.prev = self.tail.prev.prev
+        self.tail.prev.next = self.tail
+        self.size -= 1
+
+    
+    
+    def setIndex(self, index, value):
+        if index > self.size:
+            return
+        it = self.head.next
+        for i in range(index):
+            it = it.next
+        it.value = value
+        return
+    
     def get(self, index):
         if index > self.size:
             return
@@ -82,6 +140,21 @@ class LinkedList:
         if self.size == 0:
             return
         return self.head.next.value
+    
+    def peek(self):
+        if self.size == 0:
+            return
+        return self.head.next.value
+    
+    def peekFirst(self):
+        if self.size == 0:
+            return
+        return self.head.next.value
+    
+    def peekLast(self):
+        if self.size == 0:
+            return
+        return self.tail.prev.value
     
     def getLast(self):
         if self.size == 0:
