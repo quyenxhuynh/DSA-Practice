@@ -26,3 +26,5 @@ print(linkedlist)
 
 linkedlist.addIndex(0,100)
 print(linkedlist)
+assert(linkedlist.getFirst() == 100)
+assert(linkedlist.getLast() == 4)

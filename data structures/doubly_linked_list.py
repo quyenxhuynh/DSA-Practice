@@ -54,15 +54,39 @@ class LinkedList:
         self.head.next = new_node
     
     def remove(self):
+        if size == 0: 
+            return
         self.tail.prev = self.tail.prev.prev
         self.tail.prev.next = self.tail
         self.size -= 1
     
+    def removeIndex(self, index):
+        if index > self.size:
+            return
+        it = self.head.next
+        for i in range(index):
+            it = it.next
+        it.prev.next = it.next
+        it.next.prev = it.prev
+        self.size -= 1
+    
     def get(self, index):
+        if index > self.size:
+            return
         it = self.head.next
         for i in range(index):
             it = it.next
         return it.value
+    
+    def getFirst(self):
+        if self.size == 0:
+            return
+        return self.head.next.value
+    
+    def getLast(self):
+        if self.size == 0:
+            return
+        return self.tail.prev.value
     
     def size(self):
         return self.size
