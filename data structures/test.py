@@ -18,3 +18,11 @@ for i in range(5):
 print(linkedlist)
 assert(linkedlist.size == 5)
 assert(linkedlist.get(2) == 2)
+
+for i in range(-1,-5,-1):
+    linkedlist.addFirst(i)
+
+print(linkedlist)
+
+linkedlist.addIndex(0,100)
+print(linkedlist)

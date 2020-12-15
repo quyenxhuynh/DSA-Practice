@@ -1,3 +1,6 @@
+# based on java's methods
+# https://docs.oracle.com/javase/7/docs/api/java/util/LinkedList.html
+
 class Node:
     def __init__(self, value):
         self.value = value
@@ -23,6 +26,32 @@ class LinkedList:
         self.tail.prev.next = new_node
         self.tail.prev = new_node
         self.size += 1
+    
+    def addIndex(self, index, value):
+        new_node = Node(value)
+        it = self.head.next
+        for i in range(index):
+            it = it.next
+        new_node.next = it
+        new_node.prev = it.prev
+        it.prev.next = new_node
+        it.prev = new_node
+        self.size += 1
+    
+    def addLast(self, value):
+        new_node = Node(value)
+        new_node.next = self.tail
+        new_node.prev = self.tail.prev
+        self.tail.prev.next = new_node
+        self.tail.prev = new_node
+        self.size += 1
+    
+    def addFirst(self, value):
+        new_node = Node(value)
+        new_node.prev = self.head
+        new_node.next = self.head.next
+        self.head.next.prev = new_node
+        self.head.next = new_node
     
     def remove(self):
         self.tail.prev = self.tail.prev.prev
