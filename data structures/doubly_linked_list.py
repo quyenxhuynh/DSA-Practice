@@ -16,6 +16,23 @@ class LinkedList:
         self.tail.prev = self.head
         self.size = 0
     
+    def add(self, value):
+        new_node = Node(value)
+        new_node.next = self.tail
+        new_node.prev = self.tail.prev
+        self.tail.prev.next = new_node
+        self.tail.prev = new_node
+        self.size += 1
+    
     def size(self):
         return self.size
+    
+    def __str__(self):
+        iterator = self.head.next
+        s = "["
+        while iterator.hasNext():
+            s += str(iterator.value) + ","
+            iterator = iterator.next
+        s += "]"
+        return s
     

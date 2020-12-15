@@ -7,3 +7,7 @@ assert(node.prev == None)
 
 linkedlist = doubly_linked_list.LinkedList()
 assert(linkedlist.size == 0)
+
+for i in range(0,10):
+    linkedlist.add(i)
+print(linkedlist)
