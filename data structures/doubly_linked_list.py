@@ -29,6 +29,12 @@ class LinkedList:
         self.tail.prev.next = self.tail
         self.size -= 1
     
+    def get(self, index):
+        it = self.head.next
+        for i in range(index):
+            it = it.next
+        return it.value
+    
     def size(self):
         return self.size
     

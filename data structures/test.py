@@ -17,3 +17,4 @@ for i in range(5):
     linkedlist.remove()
 print(linkedlist)
 assert(linkedlist.size == 5)
+assert(linkedlist.get(2) == 2)
