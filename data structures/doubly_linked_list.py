@@ -24,6 +24,11 @@ class LinkedList:
         self.tail.prev = new_node
         self.size += 1
     
+    def remove(self):
+        self.tail.prev = self.tail.prev.prev
+        self.tail.prev.next = self.tail
+        self.size -= 1
+    
     def size(self):
         return self.size
     
@@ -31,7 +36,9 @@ class LinkedList:
         iterator = self.head.next
         s = "["
         while iterator.hasNext():
-            s += str(iterator.value) + ","
+            s += str(iterator.value)
+            if iterator.next.next != None:
+                s += ","
             iterator = iterator.next
         s += "]"
         return s

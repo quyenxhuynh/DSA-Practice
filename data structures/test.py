@@ -11,3 +11,9 @@ assert(linkedlist.size == 0)
 for i in range(0,10):
     linkedlist.add(i)
 print(linkedlist)
+assert(linkedlist.size == 10)
+
+for i in range(5):
+    linkedlist.remove()
+print(linkedlist)
+assert(linkedlist.size == 5)
