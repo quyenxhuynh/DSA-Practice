@@ -19,7 +19,7 @@ class LinkedList:
         self.tail.prev = self.head
         self.size = 0
     
-    def add(self, value):
+    def add(self, value): # add to end
         new_node = Node(value)
         new_node.next = self.tail
         new_node.prev = self.tail.prev
