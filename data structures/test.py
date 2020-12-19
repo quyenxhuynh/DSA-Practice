@@ -45,13 +45,9 @@ assert(node.value == 1)
 assert(node.next == None)
 
 sll = singly_linked_list.LinkedList()
-# for i in range(10):
+# for i in range(1,10):
 #     sll.addFront(i)
-# print(sll)
 
 # for i in range(10):
 #     sll.addEnd(i)
-# print(sll)
 
-sll.addEnd(1)
-print(sll)
