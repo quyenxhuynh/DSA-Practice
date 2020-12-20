@@ -6,6 +6,7 @@
 | Insertion (Other) | O(n)            |
 | Deletion (Head)   | O(1)            |
 | Deletion (Other)  | O(n)            |
+| Search            | O(n)            |
 
 ### Doubly-Linked
 | Method            | Time-Complexity |
@@ -16,3 +17,4 @@
 | Deletion (Head)   | O(1)            |
 | Deletion (Tail)   | O(1)            |
 | Deletion (Other)  | O(n)            |
+| Search            | O(n)            |
