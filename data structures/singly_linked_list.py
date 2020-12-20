@@ -15,7 +15,26 @@ class LinkedList:
         self.size += 1
 
     def addIndex(self, index, value):
-        return
+        if index > self.size + 1:
+            return
+        new_node = Node(value)
+        it = self.head
+        for i in range(index):
+            it = it.next
+        new_node.next = it.next
+        it.next = new_node
+        self.size += 1
+    
+    def addEnd(self, value):
+        new_node = Node(value)
+        if self.size == 0:
+            self.head.next = new_node
+        else: 
+            it = self.head.next
+            for i in range(self.size-1):
+                it = it.next
+            it.next = new_node
+        self.size += 1
     
     def getValue(self, index):
         if index > self.size or index < 0:
@@ -42,16 +61,7 @@ class LinkedList:
             it = it.next
         return -1
     
-    def addEnd(self, value):
-        new_node = Node(value)
-        if self.size == 0:
-            self.head.next = new_node
-        else: 
-            it = self.head.next
-            for i in range(self.size-1):
-                it = it.next
-            it.next = new_node
-        self.size += 1
+    
        
     def __str__(self):
         s = "["
