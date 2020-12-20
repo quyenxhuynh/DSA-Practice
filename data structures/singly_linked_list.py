@@ -77,6 +77,14 @@ class LinkedList:
             it = it.next
         it.next = None
         self.size -= 1
+    
+    def removeIndex(self, index):
+        return
+    
+    def removeValue(self):
+        return
+    
+    
        
     def __str__(self):
         s = "["
