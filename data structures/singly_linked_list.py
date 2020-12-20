@@ -62,9 +62,21 @@ class LinkedList:
         return -1
     
     def removeHead(self):
+        if self.size == 0:
+            return
         it = self.head.next
-        self.head = it.next
+        self.head.next = it.next
         it.next = None
+        self.size -= 1
+    
+    def removeTail(self):
+        if self.size == 0:
+            return
+        it = self.head.next
+        while it.next.next:
+            it = it.next
+        it.next = None
+        self.size -= 1
        
     def __str__(self):
         s = "["

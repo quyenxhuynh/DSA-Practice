@@ -45,7 +45,7 @@ assert(node.value == 1)
 assert(node.next == None)
 
 sll = singly_linked_list.LinkedList()
-for i in range(10,1,-1):
+for i in range(10):
     sll.addFront(i)
 
 # for i in range(10):
@@ -57,3 +57,6 @@ for i in range(10,1,-1):
 # for i in range(10):
 #     assert(sll.contains(i) == True)
 
+print(sll)
+sll.removeTail()
+print(sll)
