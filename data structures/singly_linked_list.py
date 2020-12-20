@@ -36,6 +36,14 @@ class LinkedList:
             it.next = new_node
         self.size += 1
     
+    def contains(self, value):
+        it = self.head.next
+        for i in range(self.size):
+            if it.value == value:
+                return True
+            it = it.next
+        return False
+    
     def getValue(self, index):
         if index > self.size or index < 0:
             return
@@ -44,14 +52,6 @@ class LinkedList:
         for i in range(index):
             it = it.next
         return it.value
-
-    def contains(self, value):
-        it = self.head.next
-        for i in range(self.size):
-            if it.value == value:
-                return True
-            it = it.next
-        return False
     
     def getIndex(self, value): # first occurrence of value
         it = self.head.next
@@ -61,7 +61,10 @@ class LinkedList:
             it = it.next
         return -1
     
-    
+    def removeHead(self):
+        it = self.head.next
+        self.head = it.next
+        it.next = None
        
     def __str__(self):
         s = "["
