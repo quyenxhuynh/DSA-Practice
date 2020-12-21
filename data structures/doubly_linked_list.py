@@ -28,15 +28,19 @@ class LinkedList:
         self.size += 1
     
     def addIndex(self, index, value):
-        new_node = Node(value)
-        it = self.head.next
-        for i in range(index):
-            it = it.next
-        new_node.next = it
-        new_node.prev = it.prev
-        it.prev.next = new_node
-        it.prev = new_node
-        self.size += 1
+        if index == 0:
+            self.addFirst(value)
+            self.size += 1
+        else: 
+            new_node = Node(value)
+            it = self.head.next
+            for i in range(index):
+                it = it.next
+            new_node.next = it
+            new_node.prev = it.prev
+            it.prev.next = new_node
+            it.prev = new_node
+            self.size += 1
     
     def addLast(self, value):
         new_node = Node(value)
@@ -52,6 +56,7 @@ class LinkedList:
         new_node.next = self.head.next
         self.head.next.prev = new_node
         self.head.next = new_node
+        self.size += 1
     
     def contains(self, value):
         if size == 0:
@@ -63,7 +68,7 @@ class LinkedList:
         return False
     
     def remove(self):
-        if size == 0:
+        if self.size == 0:
             return
         temp = self.head.next.value
         self.head.next.prev = self.head
@@ -75,7 +80,7 @@ class LinkedList:
         return self.remove()
     
     def removeLast(self):
-        if size == 0: 
+        if self.size == 0: 
             return
         temp = self.tail.prev.value
         self.tail.prev = self.tail.prev.prev

@@ -68,6 +68,7 @@ class LinkedList:
         self.head.next = it.next
         it.next = None
         self.size -= 1
+        return it.value
     
     def removeTail(self):
         if self.size == 0:

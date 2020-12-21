@@ -21,32 +21,37 @@
 #     linkedlist.remove()
 # print(linkedlist)
 # assert(linkedlist.size == 5)
-# assert(linkedlist.get(2) == 2)
-
-# for i in range(-1,-5,-1):
-#     linkedlist.addFirst(i)
-
-# print(linkedlist)
+# assert(linkedlist.get(2) == 7)
 
 # linkedlist.addIndex(0,100)
-# print(linkedlist)
+# assert(linkedlist.get(0) == 100)
 # assert(linkedlist.getFirst() == 100)
-# assert(linkedlist.getLast() == 4)
+# assert(linkedlist.getLast() == 9)
+# print(linkedlist)
+
+# assert(linkedlist.remove() == 100)
+# assert(linkedlist.get(0) == 5)
+# print(linkedlist)
+
+# assert(linkedlist.removeFirst() == 5)
+# assert(linkedlist.get(0) == 6)
+# assert(linkedlist.removeLast() == 9)
+# assert(linkedlist.getLast() == 8)
 
 
 #############################
 ####### SINGLY LINKED #######
 #############################
 
-import singly_linked_list
+# import singly_linked_list
 
-node = singly_linked_list.Node(1)
-assert(node.value == 1)
-assert(node.next == None)
+# node = singly_linked_list.Node(1)
+# assert(node.value == 1)
+# assert(node.next == None)
 
-sll = singly_linked_list.LinkedList()
-for i in range(10):
-    sll.addFront(i)
+# sll = singly_linked_list.LinkedList()
+# for i in range(10):
+#     sll.addFront(i)
 
 # for i in range(10):
 #     sll.addEnd(i)
@@ -57,6 +62,33 @@ for i in range(10):
 # for i in range(10):
 #     assert(sll.contains(i) == True)
 
-print(sll)
-sll.removeTail()
-print(sll)
+# print(sll)
+# sll.removeTail()
+# print(sll)
+
+
+#############################
+########### STACK ###########
+#############################
+# import stack
+
+# stack = stack.Stack()
+# for i in range(10):
+#     stack.push(i)
+
+# for i in range(10):
+#     stack.pop()
+
+
+#############################
+########### QUEUE ###########
+#############################
+import queue
+
+queue = queue.Queue()
+for i in range(10):
+    queue.enqueue(i)
+print(queue)
+
+for i in range(10):
+    assert(queue.dequeue() == i)

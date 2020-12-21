@@ -18,3 +18,15 @@
 | Deletion (Tail)   | O(1)            |
 | Deletion (Other)  | O(n)            |
 | Search            | O(n)            |
+
+### Stack
+| Method            | Time-Complexity |
+|-------------------|-----------------|
+| Push              | O(1)            |
+| Pop               | O(1)            |
+
+### Queue
+| Method            | Time-Complexity |
+|-------------------|-----------------|
+| Enqueue           | O(1)            |
+| Dequeue           | O(1)            |
