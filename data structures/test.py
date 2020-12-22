@@ -83,12 +83,11 @@
 #############################
 ########### QUEUE ###########
 #############################
-import queue
+# import queue
 
-queue = queue.Queue()
-for i in range(10):
-    queue.enqueue(i)
-print(queue)
+# queue = queue.Queue()
+# for i in range(10):
+#     queue.enqueue(i)
 
-for i in range(10):
-    assert(queue.dequeue() == i)
+# for i in range(10):
+#     assert(queue.dequeue() == i)
