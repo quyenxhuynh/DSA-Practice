@@ -10,5 +10,8 @@ class Stack:
     def pop(self):
         return self.list.removeHead()
     
+    def isEmpty(self):
+        return self.list.size == 0
+    
     def __str__(self):
         return self.list.__str__()
